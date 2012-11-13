@@ -3,6 +3,9 @@ class Ratnum
 include Comparable
 include Enumerable
 
+@numerador
+@denominador
+
 def initialize(a,b)
 @numerador, @denominador = a,b
 end
@@ -19,11 +22,11 @@ end
 #@a/@b
 #end
 
-def numerador
+def get_numerador
 @numerador
 end
 
-def denominador
+def get_denominador
 @denominador
 end
 
@@ -136,6 +139,10 @@ def <=>(ratnum1)
 	aux1=@numerador.to_f / @denominador.to_f
 	aux2=ratnum1.num().to_f / ratnum1.den().to_f
 	return aux1 <=> aux2
+end
+
+def coerce(ratnum1)
+	return[self,ratnum1]
 end
 
 end
